@@ -210,7 +210,7 @@
     </div>
 
     <!-- Dialog for DB settings -->
-    <div id="db_settings" class="modal modal-fixed-footer">
+    <div id="db_settings" class="modal modal-fixed-footer popup_with_table">
       <div class="modal-content">
         <h4 i18n-id="title_db_properties">DB Properties</h4>
         <table><tbody/></table>
@@ -239,6 +239,31 @@
       <div class="modal-footer">
         <a class="modal-action waves-effect btn-flat primary" id="start_sql_import" i18n-id="btn_import">Import</a>
         <a class="modal-action modal-close waves-effect btn-flat" id="btn_cancel_import" i18n-id="btn_close">Close</a>
+      </div>
+    </div>
+
+    <!-- Dialog for exporting CSV -->
+    <div id="export_csv" class="modal popup_with_table" style="max-width:500px">
+      <div class="modal-content" style="height:auto">
+        <h4 i18n-id="title_export_csv">Export output as CSV</h4>
+        <table>
+          <tr>
+            <td i18n-id="export_csv_include_header"></td>
+            <td><div class="switch"><label><text i18n-id="label_no"></text> <input type="checkbox" checked="checked" id="chkIncludeHeader"><span class="lever"></span> <text i18n-id="label_yes"></text></label></div></td>
+          </tr>
+          <tr>
+            <td i18n-id="export_csv_separator"></td>
+            <td class="combo-box"><input type="text" id="csvSeparator" readonly /><span /></td>
+          </tr>
+          <tr>
+            <td i18n-id="export_csv_enclose_quotes"></td>
+            <td class="combo-box"><input type="text" id="csvEncloseFields" readonly /><span /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action waves-effect btn-flat primary" id="btn_start_csv_export" i18n-id="menu_export">Export</a>
+        <a class="modal-action modal-close waves-effect btn-flat" id="btn_cancel_csv_export" i18n-id="btn_close">Close</a>
       </div>
     </div>
 

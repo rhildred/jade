@@ -200,6 +200,11 @@ var saveDB = function() {
   }, $("#size-menu label").text(), sql.saveTarget);
 }
 
+var openExtDB = function() {
+  FileIO.open(openDb);
+}
+
+
 var importSql = (function() {
   var startImport = function(sqlFile) {
     if ($("#start_sql_import").hasClass("disabled")) {
@@ -273,7 +278,7 @@ $(function() {
     window.Hammer = function() { };
     window.Hammer.prototype.on = function() { };
   }
-
+/* can't get this to work
   var moreOptions = new PopupMenu(
     "menu_open",
     "menu_reload",
@@ -284,6 +289,8 @@ $(function() {
   );
   moreOptions.attachTo($("#app_more_options"));
   moreOptions.onPopupItemClicked = moreOptionsClicked;
+*/
+$("#open-db").click(openExtDB);
 
-  $("#save-db").click(saveDB);
+$("#save-db").click(saveDB);
 });

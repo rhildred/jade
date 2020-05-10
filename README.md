@@ -1,6 +1,8 @@
 # JAvascript based Database Editor
 *A web based GUI client for SQLite.*
-Get it on [Chrome Web Store](https://chrome.google.com/webstore/detail/jade/bponbdjkefbmgkfiiphhabghkkfocook) or [try online demo](https://sunnygoyal.github.io/jade/).
+Get it on [Chrome Web Store](https://chrome.google.com/webstore/detail/jade/bponbdjkefbmgkfiiphhabghkkfocook) or [try online demo](https://rhildred.github.io/jade/).
+
+I needed this for a Database class with the text Kroenke, D. M. & Auer, D. J., (2015), Database Concepts,8th Ed. Formerly students used MS Access in the lab. Jade is a browser solution for students not having MS Access on their machines at home.
 
 ----------
 

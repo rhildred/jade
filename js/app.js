@@ -262,28 +262,28 @@ $(function() {
         $(this).text(msg);
       }
     });
+  });
 
-    sql = new SQL(null, AppUi.reload);
+  sql = new SQL(null, AppUi.reload);
 
-    $("#btn_add_table").click(Tables.showAdd);
+  $("#btn_add_table").click(Tables.showAdd);
 
-    // Add a dummy happer implementation
-    if (!window.Hammer) {
-      window.Hammer = function() { };
-      window.Hammer.prototype.on = function() { };
-    }
+  // Add a dummy happer implementation
+  if (!window.Hammer) {
+    window.Hammer = function() { };
+    window.Hammer.prototype.on = function() { };
+  }
 
-    var moreOptions = new PopupMenu(
-      "menu_open",
-      "menu_reload",
-      "title_db_properties",
-      null,
-      ["menu_export", "menu_export_tables", "menu_export_db", "menu_export_db_structure", "menu_export_csv"],
-      "title_import_sql"
-    );
-    moreOptions.attachTo($("#app_more_options"));
-    moreOptions.onPopupItemClicked = moreOptionsClicked;
+  var moreOptions = new PopupMenu(
+    "menu_open",
+    "menu_reload",
+    "title_db_properties",
+    null,
+    ["menu_export", "menu_export_tables", "menu_export_db", "menu_export_db_structure", "menu_export_csv"],
+    "title_import_sql"
+  );
+  moreOptions.attachTo($("#app_more_options"));
+  moreOptions.onPopupItemClicked = moreOptionsClicked;
 
-    $("#save-db").click(saveDB);
-  })
+  $("#save-db").click(saveDB);
 });

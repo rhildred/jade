@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 var i18n = (function() {
+  /*
   if (chrome && chrome.i18n && chrome.i18n.getMessage) {
     return  {
       getMessage: chrome.i18n.getMessage,
@@ -23,6 +24,7 @@ var i18n = (function() {
       }
     }
   }
+  */
 
   var locales;
   if (navigator.languages) {

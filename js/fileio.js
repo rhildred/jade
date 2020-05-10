@@ -181,18 +181,9 @@ var FileIO = (function() {
     });
   }
 
-  if (chrome && chrome.fileSystem) {
-    // Running as extension
-    return {
-      save: saveFileExtension,
-      open: selectFileExtension,
-      download: downloadFileExtension
-    };
-  } else {
-    return {
-      save: saveFile,
-      open: selectFile,
-      download: downloadFile
-    };
-  }
+  return {
+    save: saveFile,
+    open: selectFile,
+    download: downloadFile
+  };
 })();

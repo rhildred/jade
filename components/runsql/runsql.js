@@ -33,6 +33,7 @@ var RunSql = (function() {
         Materialize.toast("Error " + data.error, 2000)
       } else if (!data[0]) {
         $("#cardSqlResult").empty().hide();
+        AppUi.reload();
       } else {
         $("#cardSqlResult").empty().show().datagrid(data[0]);
       }

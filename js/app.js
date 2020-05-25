@@ -188,7 +188,7 @@ var openDb = function(dbFile, saveTarget) {
       sql = newSql;
       sql.saveTarget = saveTarget;
       AppUi.reload();
-      $("#size-menu label").text(dbFile.name);
+      $("#size-menu input").val(dbFile.name);
     }
   });
 }
@@ -197,7 +197,7 @@ var saveDB = function() {
   FileIO.save({
     preserveBlobs: true,
     action: "exportDB"
-  }, $("#size-menu label").text(), sql.saveTarget);
+  }, $("#size-menu input").val(), sql.saveTarget);
 }
 
 var openExtDB = function() {

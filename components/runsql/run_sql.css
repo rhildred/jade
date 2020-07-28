@@ -44,7 +44,7 @@ limitations under the License.
 
 #cardSqlInput .CodeMirror pre.CodeMirror-placeholder { color: #999; }
 
-#btnExecuteSql {
+#idBtnGroup {
   position: absolute;
   left: 8px;
   bottom: 8px;

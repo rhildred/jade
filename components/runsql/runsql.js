@@ -70,7 +70,8 @@ var RunSql = (function() {
           "CREATE INDEX", "CREATE UNIQUE INDEX", "CREATE VIEW", "CREATE TRIGGER"],
       ["Drop", "DROP TABLE", "DROP VIEW", "DROP INDEX", "DROP TRIGGER"],
       ["Reindex", "REINDEX tableName", "REINDEX indexName", "REINDEX collationName"],
-      ["PRAGMA", "PRAGMA table_info", "PRAGMA index_list", "PRAGMA index_info", null, "PRAGMA database_list", "PRAGMA collation_list"]);
+      ["PRAGMA", "PRAGMA table_info", "PRAGMA index_list", "PRAGMA index_info", null, "PRAGMA database_list", "PRAGMA collation_list", 
+    "PRAGMA foreign_keys"]);
     templates.translated = true;
     templates.attachTo($("#btnSqlTemplates"));
     templates.onPopupItemClicked = onTemplateClicked;
@@ -122,7 +123,8 @@ var RunSql = (function() {
         "PRAGMA index_info (indexName)",
         null,
         "PRAGMA database_list",
-        "PRAGMA collation_list"
+        "PRAGMA collation_list",
+        "PRAGMA foreign_keys = ON"
       ]
     ]
     if (templates[category] && templates[category][index]) {

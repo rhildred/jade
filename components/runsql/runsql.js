@@ -40,6 +40,22 @@ var RunSql = (function() {
     });
   }
 
+  function downloadCsv(e){
+    sql.send({
+      action: "exec",
+      sql: sqlInput.getValue()
+    }, function(data) {
+      if (data.error) {
+        Materialize.toast("Error " + data.error, 2000)
+      } else if (!data[0]) {
+        Materialize.toast("Nothing to download", 2000)
+      } else {
+        $("#cardSqlResult").empty().show().datagrid(data[0]);
+      }
+    });
+
+  }
+
   var initialize = function() {
     if (initialized) {
       return;
@@ -58,6 +74,8 @@ var RunSql = (function() {
     });
 
     $("#btnExecuteSql").click(executeSql);
+
+    $("#save-csv").click(downloadCsv);
 
     var templates = new PopupMenu(
       ["Select", "SELECT * FROM tableName", "SELECT with WHERE clause", "SELECT (general)"],

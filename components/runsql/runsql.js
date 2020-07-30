@@ -50,7 +50,33 @@ var RunSql = (function() {
       } else if (!data[0]) {
         Materialize.toast("Nothing to download", 2000)
       } else {
-        $("#cardSqlResult").empty().show().datagrid(data[0]);
+        const oData = data[0];
+        let sData = "";
+        for(let n =0; n < oData.columns.length; n++){
+          if(n != 0){
+            sData += ", ";
+          }
+          let sColumn = oData.columns[n].replace("\"", "\\\""); 
+          sData += `"${sColumn}"`;
+        }
+        for(let nRow = 0; nRow < oData.values.length; nRow++){
+          sData += "\n";
+          const aData = oData.values[nRow];
+          for(let nColumn = 0; nColumn < aData.length; nColumn++){
+            if(nColumn != 0){
+              sData += ", ";
+            }
+            let sColumn = aData[nColumn];
+            try{
+              sColumn = sColumn.replace("\"", "\\\""); 
+            }catch(e){
+              console.log(e);
+            }
+            sData += `"${sColumn}"`;
+  
+          }
+        }
+        console.log(sData);
       }
     });
 

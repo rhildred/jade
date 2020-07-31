@@ -76,7 +76,8 @@ var RunSql = (function() {
   
           }
         }
-        console.log(sData);
+        const blob = new Blob([sData], {type: "text/csv;charset=utf-8"});
+        FileSaver.saveAs(blob, $("#").val());
       }
     });
 

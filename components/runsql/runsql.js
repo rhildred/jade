@@ -54,30 +54,32 @@ var RunSql = (function() {
         let sData = "";
         for(let n =0; n < oData.columns.length; n++){
           if(n != 0){
-            sData += ", ";
+            sData += ",";
           }
           let sColumn = oData.columns[n].replace("\"", "\\\""); 
-          sData += `"${sColumn}"`;
+          sData += sColumn;
         }
         for(let nRow = 0; nRow < oData.values.length; nRow++){
           sData += "\n";
           const aData = oData.values[nRow];
           for(let nColumn = 0; nColumn < aData.length; nColumn++){
             if(nColumn != 0){
-              sData += ", ";
+              sData += ",";
             }
             let sColumn = aData[nColumn];
-            try{
-              sColumn = sColumn.replace("\"", "\\\""); 
-            }catch(e){
-              console.log(e);
+            if(typeof(sColumn) == "string" && sColumn.match(/\"/)){
+              sColumn = sColumn.replace(/\"/g, "\"\""); 
             }
-            sData += `"${sColumn}"`;
+            if(typeof(sColumn) == "string" && sColumn.match(/[,\"]/)){
+              sData += `"${sColumn}"`;
+            }else{
+              sData += sColumn;
+            }
   
           }
         }
         const blob = new Blob([sData], {type: "text/csv;charset=utf-8"});
-        FileSaver.saveAs(blob, $("#").val());
+        saveAs(blob, $("#idExportCSV").val());
       }
     });
 
